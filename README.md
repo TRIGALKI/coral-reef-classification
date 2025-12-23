@@ -1,62 +1,52 @@
-# Coral Reef Classification using ResNet50
+# Классификация кораловых рифов с помощью ResNet50
 
-This project applies deep learning to classify coral reef images into two categories: bleached and healthy.
-The goal is to demonstrate how transfer learning with ResNet50 can be applied in environmental monitoring tasks, specifically for studying the health of coral reefs.
+Большую роль в эклологии играют кораловые рифы.Они являются не только центрами биоразнообразия но и защиают береговые линии от разрушения а так же поглощают и запасают в себе углерод из воды.Но в настоящее время популяция коралов под угрозой из за деятельности человека и глабального изменения климата и ph баланса в воде.
 
-Coral reefs are highly sensitive ecosystems, and bleaching events caused by rising sea temperatures are a major threat.
-By building an automated classification model, we can explore how computer vision techniques may assist researchers and conservationists in monitoring reef health at scale.
+Данная работа создана для демонстрации возможности использования модели машинного обучения для задачи мониторинга экосистем коралов а именно классификации коралов по фоторафиям на здоровые и нездоровые.
 
-## Dataset
+## Набор данных
 
-The dataset is organized into two main folders:
-- healthy_corals/ (contains images of healthy coral reefs)
-- bleached_corals/ (contains images of bleached/damaged coral reefs)
+Набор данных разделен на две основные папки:
+- healthy_corals/ (содержит изображения здоровых коралловых рифов)
+- bleached_corals/ (содержит изображения обесцвеченных/поврежденных коралловых рифов)
 
-All images were preprocessed using data augmentation techniques (resizing, flipping, rotation, zooming, etc.) to improve generalization and handle dataset size limitations.
+Все изображения были предварительно обработаны с использованием методов увеличения объема данных (изменение размера, отзеркаливание, поворот, масштабирование и т.д.), чтобы улучшить обобщающую харакетеристику модели и работать с ограничениями по размеру набора данных.
 
-(Note: Due to size, the dataset is uploaded as a .zip file.)
+(Примечание: Из-за размера набор данных загружается в виде zip-файла.)
 
-## Methodology
+## Методология
 
-The methodology followed to develop this computer vision model includes the following major steps:
+Методология, использованная при разработке этой модели компьютерного зрения, включает следующие основные этапы:
 
-1. Data Preprocessing
-   - Image resizing to 224x224
-   - Normalization of pixel values
-   - Augmentation (random flips, rotations, zoom, brightness adjustments)
+1. Предварительная обработка данных
+ - Изменение размера изображения до 224x224
+ - Нормализация значений пикселей
+ - Увеличение (случайные перемещения, повороты, масштабирование, регулировка яркости)
 
-2. Model Development
-   - Base model: ResNet50 (with pre-trained ImageNet weights)
-   - Top layers replaced with custom fully connected layers
-   - Dropout for regularization
+2. Разработка модели
+ - Базовая модель: ResNet50 (с предварительно настроенными весами ImageNet)
+ - Верхние слои заменены кастомными слоями
+ - Дропаут для регуляризации
 
-3. Training
-   - Loss function: binary_crossentropy
-   - Optimizer: Adam
-   - Metrics: accuracy
-   - Training/validation split: 80/20
-   - Epochs: 50
+3. Обучение
+ - Функция потерь: binary_crossentropy
+ - Оптимизатор: Adam
+ - Показатели: Accuracy
+ - Обучение/валидация 80/20
+ -  50 Эпох обучения
 
-4. Evaluation
-   - Accuracy and loss curves
-   - Confusion matrix
-   - Classification report (precision, recall, F1-score)
+4. Оценка
+ - Кривые Accuracy и loss
+ - Матрица ошибок
+ - Отчет о классификации (precision, recall, F1-score)
 
-This model was developed in Google Colab as heavy training for computer vision projects is much easier with a GPU (as Google Colab provides) and then was exported as an .ipynb file.
+Эта модель была разработана в Google Colab а затем была экспортирована в виде файла .ipynb.
 
-## Results
+## Результаты
 
-The model achieved a validation accuracy of 73.37% with a validation loss of 1.79.
+Точность валидации модели составила 73,37% при потере валидации в 1,79 раза.
 
-The model shows moderate performance in distinguishing between bleached and healthy corals. While the accuracy is not very high, this project demonstrates the practical application of transfer learning with ResNet50 on a real-world dataset, including image preprocessing, augmentation, and evaluation using metrics such as confusion matrix and classification report. It also highlights the potential of deep learning models for environmental monitoring tasks. Further improvements could be achieved with a larger dataset, additional fine-tuning, or experimenting with different architectures.
-
-## How to Run?
-
-1. Open the notebook `coral_reef_classification.ipynb` directly in Google Colab.
-2. Enable GPU:
-   - Go to `Runtime` > `Change runtime type` > Select `GPU`.
-3. Upload the dataset (or modify the code to point to your dataset location).
-4. Run all cells to train and evaluate the model.
+Модель демонстрирует умеренную эффективность в различении обесцвеченных и здоровых кораллов. Хотя точность не очень высока, этот проект демонстрирует практическое применение технологии transfer learning с помощью ResNet50 в реальном наборе данных, включая предварительную обработку изображений и оценку с использованием таких показателей, как матрица ошибок и отчет о классификации. Это также подчеркивает потенциал моделей глубокого обучения для решения задач экологического мониторинга. Дальнейших улучшений можно добиться за счет увеличения объема данных, дополнительной тонкой настройки или экспериментов с различными архитектурами.
 
 ## Requirements
 
@@ -66,5 +56,5 @@ The model shows moderate performance in distinguishing between bleached and heal
 - Matplotlib
 - scikit-learn
 
-## Author
+## Author оригинальной модели
 Hajara Sabnam Kareem Navaz [ML & DS Enthusiast :)]
